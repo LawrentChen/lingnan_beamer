@@ -1,0 +1,278 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX program = xelatex
+
+% 全局字体默认是 11pt
+% compress 选项可以压缩 outer 元素的占用空间
+% hyperref 中如果选择 colorlinks=true 会导致所有链接都变色
+% dvipsnames,svgnames,x11names 都是 xcolor 的选项，只是多一些颜色选择
+\documentclass[UTF8,14pt,aspectratio=43,dvipsnames,svgnames,x11names,hyperref={urlcolor=blue}]{beamer}  
+
+% 中文包，ctex 封装了 xeCJK
+% window 系统把 fontset 参数改为 windows，或者依然是 none 
+% 目前 mac 系统的 fontset 参数还有 mac; macold; macnew。 都可以顺利编译，具体区别不明，可以参考 ctex github 项目的有关 issue
+\usepackage[UTF8,fontset=none]{ctex}
+
+% 图片包
+\usepackage{graphicx}
+
+\usetheme{lingnan}  % 指定全局模板主题
+\usefonttheme[onlymath]{serif}  % 数学字体
+
+% 指定中文字体
+% 如果使用了系统中没有的字体会报错
+% mac 系统下 ctex 包无论采用哪一个 fontset 参数都会引起一些警告，但仍然可以顺利编译
+\setCJKmainfont[BoldFont={HiraginoSansGB-W6},ItalicFont={HiraginoSansGB-W3}]{HiraginoSansGB-W3}
+\setCJKsansfont{HiraginoSansGB-W3}
+\setCJKmonofont{NotoSansMonoCJKsc-Regular}
+\XeTeXlinebreaklocale “zh”  % 中文断行
+
+% 设定新字体的快捷命令，可以在局部改用这些预设字体
+\setCJKfamilyfont{songti}{STSongti-SC-Regular}
+\newcommand{\ST}{\CJKfamily{songti}}
+\setCJKfamilyfont{kaiti}{STKaitiSC-Regular}
+\newcommand{\KT}{\CJKfamily{kaiti}}
+
+% 指定默认图片目录
+\graphicspath{{./img/}}
+
+% 基本信息，这些要写在 titlepage 前面作为 preamble
+\title[short title]{long title}
+\subtitle[short subtitle]{long subtitle}
+\institute[short institute-name]{long institute-name}
+\author[short author-name]{long author-name}
+\date[\today]{\today}
+\titlegraphic{\includegraphics[width=0.3\textwidth]{logo2.png}}
+
+\begin{document}
+
+% 标题页，根据 preamble 的基本信息生成。前后不用 \begin{frame} \end{frame} 包覆也能生成，好像没什么区别
+% plain 选项可以取消当前页的 headline, footline, 以及 sidebar
+\frame[plain]{\titlepage}
+
+% 目录页
+% 标题可以用 \frametitle 也可以跟在 \begin{frame} 后面作为参数
+\begin{frame}\frametitle{Outline}
+	% toc 有 pausesections 选项会生成等于 section 数量的页数，各个 section 按顺序增量出现，一般用不上。
+	% 还有个 part=1 的选项控制目录深度？
+	\begin{footnotesize}
+	\tableofcontents  % 数量过多时要自己控制字体大小才能完全显示
+	\end{footnotesize}
+\end{frame}
+
+% 声明一个 section，注意观察在不同主题的导航栏中显示的效果
+% section 的声明也不影响其内外 frame 的结构和呈现 
+\section{列表}
+
+\subsection{基本列表} % 同样注意观察子节在导航栏中的效果
+	%  frame 为常规“页”，但也可以通过 pause 等方式在一个 frame 定义内实际生成多张 slides
+	% [ ]内选项，默认为 c-中央对齐，还可以有 t-上部对齐, b-底部对齐
+	\begin{frame}[t]{无序列表}  
+	\begin{itemize}
+		\item The first item
+		\item The second item
+		\item The third item
+		\item The fourth item
+	\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{有序列表}
+		\begin{enumerate}
+			\item The first item
+			\item The second item
+			\item The third item
+			\item The fourth item
+		\end{enumerate}
+	\end{frame}
+
+\subsection{描述列表}
+\begin{frame}{描述列表}
+	\begin{description}
+		\item[First Item] Description of first item
+		\item[Second Item] Description of second item
+		\item[Third Item] Description of third item
+		\item[Forth Item] Description of forth item
+	\end{description}
+\end{frame}
+
+\section*{不进入目录的节} % 加星号就不会进入目录
+
+\section[文本字符]{文本字符}  % 方括号中的 short title 选项才是进入导航栏的
+\begin{frame}{各类变体}
+	\emph{Sample Text} \\
+	\textbf{Sample Text} \\
+	\textit{Sample Text} \\
+	\textsl{Sample Text} \\
+	\alert{Sample Text} \\
+	\textrm{Sample Text} \\
+	\textsf{Sample Text} \\
+	\textcolor{green}{Sample Text} \\
+	\structure{Sample Text}	\\
+	\ST 宋体\\
+	\KT 楷体
+\end{frame}
+
+\begin{frame}[fragile]{逐字符输入}  % 要使用 verbatim 必须在有 fragile 选项的 frame 里
+	% 注意下面的写法会连空格和制表符也显示出来
+	% 另外还存在有 semiverbatim 环境
+	\begin{verbatim}
+		Sample text
+	\end{verbatim}
+\end{frame}
+
+\section[帧内结构]{帧内结构}
+\begin{frame}{分栏与子页}
+	\begin{columns}
+		\column{.5\textwidth}  % 宽度可调
+			First column text and/or code
+		\column{.3\paperwidth}
+			Second column text and/or code
+	\end{columns}
+\end{frame}
+
+\begin{frame}{块}
+	\begin{columns}
+		\column{.5\textwidth}
+			\begin{block}{Beamer 内建区块环境}
+				block 普通环境\\
+				theorem 定理环境\\
+				lemma 引理环境\\
+				proof 证明环境\\
+				corollary 推论环境\\
+				example 示例环境\\
+				alertblock 警示环境
+			\end{block}
+		
+		\column{.5\textwidth}
+			% 注意定理名称为中括号而非花括号包覆，且 theorem 环境的标题会有“定理”开头
+			\begin{theorem}[勾股定理]
+				% 使用 equation 环境会有公式编号，直接用 $ $ 的环境则没有
+				\begin{equation}  
+					a^2+b^2=c^2
+				\end{equation}
+			\end{theorem}
+	\end{columns}
+\end{frame}
+
+\section[表格与图片]{表格与图片}
+\begin{frame}{表格}
+	\begin{table}[htbp]  % 参数 tb,htbp 的意义是?
+		\centering
+		\caption{Caption here\label{tab:tablename}}
+		% tabular 环境的 l|cc 参数就是逐列声明对齐方式，第一列和第二列之间加上竖线
+		% \hline 为水平线
+		\begin{tabular}{l|cc} \hline  
+			\textbf{column 1} & \textbf{column 2} & \textbf{column 3} \\ \hline
+			Hello & Beamer & NAN \\ \hline
+			$\alpha+\beta$ & $\gamma+\eta$ & 34\% \\ \hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}{图片}
+	\begin{figure}[tb]
+		\centering
+		\includegraphics[width=0.9\textwidth]{logo2.png}
+		\caption{Caption here\label{fig:figure1}}
+	\end{figure}
+\end{frame}
+
+\section[对齐与空格]{对齐与空格}
+\begin{frame}{文本对齐}
+	\begin{center}  % 还有 left，right
+		居中对齐文本
+	\end{center}
+\end{frame}
+
+\begin{frame}{文本空格}
+	some \hskip20pt text here  % 还可以有 vskip 垂直空格，负的 pt 可以缩减间距，单位也可以用 cm,ex,em 等等
+\end{frame}
+
+\section[Overlay 蒙板覆盖]{Overlay 蒙版覆盖}
+\subsection[暂停]{暂停}
+\begin{frame}{暂停}{pause}
+	% 使用 \pause 来分割，和目录页中的 pausesection 选项一样会生成多张 slide
+	\textbf{Step 1:} Compute the maximal suffix of $w$
+	with respect to $\preceq_l$ (say $v$) and the
+	maximal suffix of $w$ with respect to $\preceq_r$
+	(say $v’$).\\
+	
+	\pause
+	
+	\textbf{Step 2:} Find words $u$, $u’$ such that
+	$w = uv = u’v’$.\\
+	
+	\pause
+	
+	\textbf{Step 3:} If $|v| \le |v’|$, then output
+	$(u,v)$. Otherwise, output$(u’,v’)$.
+\end{frame}
+
+\subsection[显式声明]{显式声明}
+\begin{frame}{显式声明}
+	% The specification <1-> means “display from slide 1 on.” <1-3>
+	% means “display from slide 1 to slide 3.” <-3,5-6,8-> means
+	% “display on all slides except slides 4 and 7.”
+	用尖括号 <> 内的数字声明，更适合于多个项目按不同页面划分不同的效果
+	\begin{itemize}[<+->]  %: If you want each item of a list to appear in order, use the [<+->] option？
+		\item<1> $abcadcabca$\\
+		\item<1-2> $abcabcabca$\\
+		\item<1-2> $accaccacca$\\
+		\item<1> $bacabacaba$\\
+		\item<1,3> $cacdaccacc$\\
+		\item<1-2> $caccaccacc$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{显式声明的另一个用途}
+	可以用在命令的执行上  % 还有 text，color 等命令都可行
+	\vskip12pt
+	\alert{Alert on all slides}\\
+	\alert<2>{Alert on slide 2}\\
+	\alert<3>{Alert on slide 3}\\
+	\alert<1,3>{Alert on slides 1 and 3}\\
+	\alert<-2,4>{Alert on slides 1, 2 and 4}
+\end{frame}
+
+\subsection[其他相关用途]{其他相关用途}
+\begin{frame}[fragile]{其他有用的 Overlay 方法}
+	\begin{verbatim}
+\onslide<1,2>
+\only<1,2> 
+\visible<1,2>
+\invisible<1,2>
+\alt<1,2> 
+\temporal<1,2>
+\uncover<1,2> 
+\end{verbatim}
+\end{frame}
+
+\begin{frame}{区块应用}
+	区块环境同样可用
+	\begin{theorem}<1->
+		There exists an infinite set.
+	\end{theorem}
+	\begin{proof}<2->
+		This follows from the axiom of infinity.
+	\end{proof}
+\end{frame}
+
+\section[超链接]{超链接}
+\subsection[内部链接]{内部链接}
+\begin{frame}[label=内部链接]{内部链接}
+	点击按钮跳转 \hyperlink{内部链接目标}{\beamergotobutton{Detail}}\\
+	$\backslash$hyperlink 的 target name 参数需要在 frame 的 label 选项中指定并对应调用
+\end{frame}
+
+\begin{frame}[label=内部链接目标]{内部链接目标}
+	点击按钮回到先前页面 \hyperlink{内部链接}{\beamerreturnbutton{Return}}
+\end{frame}
+
+\subsection[外部链接]{外部链接}
+\begin{frame}{外部链接}
+	- 显式 \url{www.baidu.com}\\
+	- 隐式 \href{www.baidu.com}{百度}\\
+	问题是 hyperref 中一旦启用 colorlinks，就要指定除 urlcolor 外的 linkcolor,filecolor,citecolor 等以保持颜色风格与主题一致。所以如非必要，不要放外部链接
+\end{frame}
+
+\end{document}

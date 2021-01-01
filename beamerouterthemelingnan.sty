@@ -1,0 +1,46 @@
+\mode<presentation>
+
+% Modified from outertheme miniframes
+% Cancel the subsection title in each frame
+\useoutertheme[subsection=false]{miniframes}  % smoothbar can also be good
+
+% Headline
+% Note the '%' at the end of each box
+\addtobeamertemplate{headline}
+{%
+  \hbox{%
+  \leavevmode% Be careful of the position of this \leavevmode 
+  
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=0.7ex]{h1}
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=0.7ex]{h2}
+  \end{beamercolorbox}%
+  }%
+}
+
+% Footline
+% Note the '%' at the end of each box
+\setbeamertemplate{footline}
+{
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}
+    \usebeamerfont{date in head/foot}\insertshortdate
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}
+    \usebeamerfont{page number in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}%
+  }
+}
+
+\mode<all>

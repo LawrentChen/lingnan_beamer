@@ -1,0 +1,37 @@
+\mode<presentation>
+
+% Modified from colortheme beaver
+% Note that beaver also inherits from 'default', so do we
+\usecolortheme{beaver}
+
+% Define lingnan and other main colors
+%=====================================
+\definecolor{lingnanred}{RGB}{223, 0, 69}  % #DF0045
+\definecolor{lingnangrey}{RGB}{213, 213, 210}  % #D5D5D2
+% \definecolor{lblue}{RGB}{10,95,160}  % #0A5FA0
+% \definecolor{lyellow}{RGB}{249,227,0}  % #F9E300
+
+% Inherit palette from parent beaver
+% See the inherit sequence in the main theme .sty
+%================================================
+\setbeamercolor{section in head/foot}{bg=lingnangrey!20!white,fg=black}
+\setbeamercolor{author in head/foot}{parent=palette tertiary}
+\setbeamercolor{title in head/foot}{bg=lingnangrey!50!white,fg=black}
+\setbeamercolor{date in head/foot}{bg=lingnangrey!50!white,fg=black}
+\setbeamercolor{page number in head/foot}{bg=lingnangrey!50!white,fg=black}
+
+\setbeamercolor{frametitle}{bg={}}
+\setbeamercolor{item}{fg=darkred!80!black}
+\setbeamercolor{item projected}{fg=white, bg=darkred!80!black}  % override 'item' above
+\setbeamercolor{block title}{fg=white,bg=darkred!80!black}
+\setbeamercolor{block body}{fg=black,bg=lingnangrey!50!white}
+\setbeamercolor{qed symbol}{fg=lingnanred}
+\setbeamercolor{caption name}{fg=darkred!80!black}
+\setbeamercolor{button}{bg=lingnanred}
+
+% Color schemes for special usage
+%================================
+\setbeamercolor{h1}{bg=darkred!80!black}
+\setbeamercolor{h2}{bg=lingnangrey!50!white}
+
+\mode<all>
