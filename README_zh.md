@@ -58,7 +58,11 @@
 
 
 
-特别感谢我的同学 hanliang, liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang); bokai, Zhu; yuming, OuYang 提出的意见和建议。
+特别感谢我的同学提出的意见和建议，他们是:
+
+- hanliang, Liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang)
+- bokai, Zhu
+- yuming, OuYang 
 
 
 

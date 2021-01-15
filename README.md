@@ -57,7 +57,11 @@ For now, this syle has been tested under mactex, texlive and xelatex enviornment
 
 
 
-Special thanks to the comments and advice from my classmates hanliang, liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang); bokai, Zhu; yuming, OuYang.
+Special thanks to the comments and advice from my classmates:
+
+- hanliang, Liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang);
+- bokai, Zhu
+- yuming, OuYang.
 
 
 
