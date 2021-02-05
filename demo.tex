@@ -154,6 +154,54 @@
 	\end{columns}
 \end{frame}
 
+\subsection{数学公式}
+
+\begin{frame}{数学公式（非编号）}
+	行内公式 $e^{ix}=cosx+isinx$\\
+	代码块形式
+	$$e^{ix}=cosx+isinx$$
+	以上两者均不编号
+\end{frame}
+
+\begin{frame}{数学公式（编号）}
+	\begin{block}{equation 环境}
+		% equation 后加*则不编号
+		\begin{equation} \label{euler eqn}
+			e^{ix}=cosx+isinx
+		\end{equation}
+	\end{block}
+	\begin{block}{嵌套split，注意可以逐行编号也可以整体编号}
+		\begin{equation}
+			\begin{split}
+				A & = \frac{\pi r^2}{2} \\
+				& = \frac{1}{2} \pi r^2
+			\end{split}
+		\end{equation}
+	\end{block}
+\end{frame}
+
+\begin{frame}{数学公式（编号）}
+	使用 equation, split, multline, align, gather 环境，默认编号。环境声明加星号后缀则不编。\\
+	引用需要用 label 标签后再使用 eqref/ref。\\
+	如： \eqref{euler eqn} 式
+\end{frame}
+
+\begin{frame}{子公式编号}
+	\begin{subequations}
+	% subequations 环境下属 label 内小写字母后缀为特别二级排序
+	% \notag 则为不编号
+		\begin{align}
+			y5=x5+z5 \label{Za}\\
+			y6=x6+z6 \notag \\
+			y7=x7+z7 \label{Zb}
+		\end{align}
+	\end{subequations}
+	Next equation:
+	\begin{equation}
+		y8=x8+z8 \label{WW}
+	\end{equation}
+\end{frame}
+
 \section[表格与图片]{表格与图片}
 \begin{frame}{表格}
 	\begin{table}[htbp]  % 参数 tb,htbp 的意义是?
