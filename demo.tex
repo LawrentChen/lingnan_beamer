@@ -38,8 +38,20 @@
 % 基本信息，这些要写在 titlepage 前面作为 preamble
 \title[short title]{long title}
 \subtitle[short subtitle]{long subtitle}
-\institute[short institute-name]{long institute-name}
-\author[short author-name]{long author-name}
+\institute[short institute-name]
+{
+	\inst{1}	
+	long institute-name 1
+	\and
+	\inst{2}
+	long institute-name 2
+}
+\author[short author-name]
+{
+	long author-name 1\inst{1}
+	\and
+	long author-name 2\inst{2}
+}
 \date[\today]{\today}
 \titlegraphic{\includegraphics[width=0.3\textwidth]{logo2.png}}
 
@@ -100,14 +112,14 @@
 \section[文本字符]{文本字符}  % 方括号中的 short title 选项才是进入导航栏的
 \begin{frame}{各类变体}
 	\emph{Sample Text} \\
-	\textbf{Sample Text} \\
-	\textit{Sample Text} \\
-	\textsl{Sample Text} \\
-	\alert{Sample Text} \\
-	\textrm{Sample Text} \\
-	\textsf{Sample Text} \\
-	\textcolor{green}{Sample Text} \\
-	\structure{Sample Text}	\\
+	\textbf{Bold} \\
+	\textit{Italic} \\
+	\textsl{Slanted} \\
+	\alert{Aleart} \\
+	\textrm{Roman} \\
+	\textsf{SansSerif} \\
+	\textcolor{green}{Color} \\
+	\structure{Structure}	\\
 	\ST 宋体\\
 	\KT 楷体
 \end{frame}
@@ -204,7 +216,12 @@
 
 \section[表格与图片]{表格与图片}
 \begin{frame}{表格}
-	\begin{table}[htbp]  % 参数 tb,htbp 的意义是?
+	\begin{table}[t]  
+	% 参数，似乎在 Beamer 中无效
+	% h - here
+	% t - top
+	% b - bottom
+	% p - special page
 		\centering
 		\caption{Caption here\label{tab:tablename}}
 		% tabular 环境的 l|cc 参数就是逐列声明对齐方式，第一列和第二列之间加上竖线
