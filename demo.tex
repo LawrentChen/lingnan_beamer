@@ -15,6 +15,12 @@
 % 图片包
 \usepackage{graphicx}
 
+% 表格包
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\renewcommand{\arraystretch}{1.2} % default is 1.0 避免表格内容上沿离边界太近，特别是汉字
+
 \usetheme{lingnan}  % 指定全局模板主题
 \usefonttheme[onlymath]{serif}  % 数学字体
 
@@ -66,9 +72,8 @@
 \begin{frame}\frametitle{Outline}
 	% toc 有 pausesections 选项会生成等于 section 数量的页数，各个 section 按顺序增量出现，一般用不上。
 	% 还有个 part=1 的选项控制目录深度？
-	\begin{footnotesize}
+	\footnotesize
 	\tableofcontents  % 数量过多时要自己控制字体大小才能完全显示
-	\end{footnotesize}
 \end{frame}
 
 % 声明一个 section，注意观察在不同主题的导航栏中显示的效果
@@ -232,6 +237,39 @@
 			$\alpha+\beta$ & $\gamma+\eta$ & 34\% \\ \hline
 		\end{tabular}
 	\end{table}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{跨页表格}
+	表格代码生成网站 https://www.tablesgenerator.com/
+	\begin{longtable}[c]{@{}llr@{}}
+		\toprule
+		\multicolumn{2}{c}{Item} &            \\* \midrule
+		\endfirsthead
+		%
+		\multicolumn{3}{c}%
+		{{\bfseries Table \thetable\ continued from previous page}} \\
+		\toprule
+		\multicolumn{2}{c}{Item} &            \\* \midrule
+		\endhead
+		%
+		\bottomrule
+		\endfoot
+		%
+		\endlastfoot
+		%
+		Animal     & Description & Price (\$) \\* \midrule
+		Gnat       & per gram    & 13.65      \\
+				   & each        & 0.01       \\
+		Gnu        & stuffed     & 92.50      \\
+		Emu        & stuffed     & 33.33      \\
+		\pagebreak  %手工指定比较好
+		\toprule  %手工重复表头
+		\multicolumn{2}{c}{Item} &            \\* \midrule
+		Animal     & Description & Price (\$) \\* \midrule
+		Pig        & hot         & 44.22      \\
+		Cow        & cold        & 22.33      \\
+		Armadillo  & frozen      & 8.99       \\* \bottomrule
+		\end{longtable}
 \end{frame}
 
 \begin{frame}{图片}
