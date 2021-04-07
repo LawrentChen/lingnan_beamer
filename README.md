@@ -45,13 +45,16 @@ For now, this syle has been tested under mactex, texlive and xelatex enviornment
 
 - [Beamer User Guide](https://mirror.bjtu.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
 - [Beamer Repository](https://github.com/josephwright/beamer)
+- [Overleaf Documentation](https://www.overleaf.com/learn)
 
 **Unofficial**:
 
 - [BEAMER appearance cheat sheet](http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf)
 - [Beamer Theme Gallery](https://deic-web.uab.cat/~iblanes/beamer_gallery/index.html)
 - [Beamer Theme Matrix](https://hartwork.org/beamer-theme-matrix/)
+- [Tex Stack Exchange](https://tex.stackexchange.com/)
 - [Sun Yat-sen University LaTeX thesis style(unofficial)](https://github.com/sysu/thesis)
+
 - Slides of the International Economics course, lectured by Prof.xiaodong, Lu (Thanks to bokai, zhu)
 - Zhihu@段丞博  [Bemaer Style Design](https://zhuanlan.zhihu.com/p/134242281) series articles
 
@@ -68,4 +71,3 @@ Special thanks to the comments and advice from my classmates:
 ## Contribution
 
 Any issue or PR are welcome.
-

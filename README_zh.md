@@ -45,12 +45,14 @@
 
 - [Beamer User Guide](https://mirror.bjtu.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
 - [Beamer Repository](https://github.com/josephwright/beamer)
+- [Overleaf Documentation](https://www.overleaf.com/learn)
 
 **非官方**：
 
 - [BEAMER appearance cheat sheet](http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf)
 - [Beamer Theme Gallery](https://deic-web.uab.cat/~iblanes/beamer_gallery/index.html)
 - [Beamer Theme Matrix](https://hartwork.org/beamer-theme-matrix/)
+- [Tex Stack Exchange](https://tex.stackexchange.com/)
 - [中山大学LaTeX论文项目模板(非官方)](https://github.com/sysu/thesis)
 
 - 岭南学院经济系鲁晓东教授在国际经济学课程上所使用的 Slide（感谢 bokai, zhu 友情提供）
