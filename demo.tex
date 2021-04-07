@@ -11,6 +11,7 @@
 % window 系统把 fontset 参数改为 windows，或者依然是 none 
 % 目前 mac 系统的 fontset 参数还有 mac; macold; macnew。 都可以顺利编译，具体区别不明，可以参考 ctex github 项目的有关 issue
 \usepackage[UTF8,fontset=none]{ctex}
+\usepackage{amsmath}
 
 % 图片包
 \usepackage{graphicx}
@@ -18,6 +19,13 @@
 % 表格包
 \usepackage{booktabs}
 \usepackage{longtable}
+
+% 引用包
+% biblatex 最现代（默认后端使用 biber），但不一定被期刊接受。比较传统的有 bibtex 和 natbib。
+% 注意很可能需要根据编辑器配置编译流程，可参考 tex stack exchagne 上的问答
+% 各参数可以选择各种格式，参考投稿要求和 overleaf 教程
+% style 为文后列表格式，citestyle 为文内引用格式
+\usepackage[style=gb7714-2015,citestyle=authoryear-comp,sorting=ynt]{biblatex}
 
 \renewcommand{\arraystretch}{1.2} % default is 1.0 避免表格内容上沿离边界太近，特别是汉字
 
@@ -40,6 +48,12 @@
 
 % 指定默认图片目录
 \graphicspath{{./img/}}
+
+% 指定参考文献 bibtex 文件
+% cnki 无法直接导出 bibtex 格式，可以通过 endnote 等工具转换
+\addbibresource{ref.bib}
+
+\setbeamerfont{date}{size=\small}
 
 % 基本信息，这些要写在 titlepage 前面作为 preamble
 \title[short title]{long title}
@@ -376,6 +390,21 @@
 	- 显式 \url{www.baidu.com}\\
 	- 隐式 \href{www.baidu.com}{百度}\\
 	问题是 hyperref 中一旦启用 colorlinks，就要指定除 urlcolor 外的 linkcolor,filecolor,citecolor 等以保持颜色风格与主题一致。所以如非必要，不要放外部链接
+\end{frame}
+
+\section{引用}
+\begin{frame}{引用}
+	注意编译时要选择所使用包（如 biblatex）对应的后端（如 biber）\\
+	另外文内引用的年份位置会生成可点击的超链接\\
+	~\\
+	比如 \cite{mincer1962job}，\cite{schultz1961investment} 是人力资本的早期文献\\
+	\cite{孟望生2018人力资本统计核算方法研究述评,李海峥2010中国人力资本测度与指数构建} 则是国内近期比较好的研究
+\end{frame}
+
+\begin{frame}{参考文献}
+	\AtNextBibliography{\scriptsize} % 不可以直接用 \scriptsize 改变参考列表字体大小
+	\nocite{*} % 不管文中有没有正是引用，后续参考列表均列出全部 .bib 文件中的参考文献
+	\printbibliography % 此命令会自动生成一个名为“参考文献”的 section 和 frame，但不会生成 frametitle
 \end{frame}
 
 \end{document}
