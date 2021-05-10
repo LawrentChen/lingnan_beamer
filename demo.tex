@@ -15,6 +15,7 @@
 
 % 图片包
 \usepackage{graphicx}
+\usepackage{tikz}
 
 % 表格包
 \usepackage{booktabs}
@@ -52,6 +53,9 @@
 % 指定参考文献 bibtex 文件
 % cnki 无法直接导出 bibtex 格式，可以通过 endnote 等工具转换
 \addbibresource{ref.bib}
+
+% 设定目录深度，只到第 1 级
+\setcounter{tocdepth}{1}
 
 \setbeamerfont{date}{size=\small}
 
@@ -294,6 +298,14 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}
+	% 通过 tikz 可以对图片进行各种深入操作
+	% 比如这里挤满页面左侧 padding 的插入图片
+	\begin{tikzpicture}[remember picture, overlay] % 在前面的图片上做覆盖，标准的水平居中全页宽图片显示，可能需要多编译几次
+		\node[overlay,inner sep=0pt,outer sep=0pt,anchor=west] at (current page.west){\includegraphics[width=\paperwidth]{三大需求对国内生产总值增长的贡献.png}};
+	\end{tikzpicture}
+\end{frame}
+
 \section[对齐与空格]{对齐与空格}
 \begin{frame}{文本对齐}
 	\begin{center}  % 还有 left，right
@@ -394,11 +406,18 @@
 
 \section{引用}
 \begin{frame}{引用}
+	\footnotesize
 	注意编译时要选择所使用包（如 biblatex）对应的后端（如 biber）\\
 	另外文内引用的年份位置会生成可点击的超链接\\
 	~\\
-	比如 \cite{mincer1962job}，\cite{schultz1961investment} 是人力资本的早期文献\\
-	\cite{孟望生2018人力资本统计核算方法研究述评,李海峥2010中国人力资本测度与指数构建} 则是国内近期比较好的研究
+	这里使用的citestyle=authoryear-comp\\
+	~\\
+	几种不同的引用方式：
+	\begin{itemize}
+		\item cite 没括号：\cite{mincer1962job}
+		\item textcite 年份有括号：\textcite{schultz1961investment}
+		\item parencite 整体括号：\parencite{孟望生2018人力资本统计核算方法研究述评,李海峥2010中国人力资本测度与指数构建}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{参考文献}
