@@ -26,7 +26,8 @@
 % 注意很可能需要根据编辑器配置编译流程，可参考 tex stack exchagne 上的问答
 % 各参数可以选择各种格式，参考投稿要求和 overleaf 教程
 % style 为文后列表格式，citestyle 为文内引用格式
-\usepackage[style=gb7714-2015,citestyle=authoryear-comp,sorting=ynt]{biblatex}
+% sortlocales=zh__pingyin 能使中文引用列表按一作姓氏首字拼音排序。
+\usepackage[style=gb7714-2015,citestyle=authoryear-comp,sorting=ynt,sortlocale=zh__pinyin]{biblatex}
 
 \renewcommand{\arraystretch}{1.2} % default is 1.0 避免表格内容上沿离边界太近，特别是汉字
 
@@ -417,6 +418,7 @@
 		\item cite 没括号：\cite{mincer1962job}
 		\item textcite 年份有括号：\textcite{schultz1961investment}
 		\item parencite 整体括号：\parencite{孟望生2018人力资本统计核算方法研究述评,李海峥2010中国人力资本测度与指数构建}
+		\item fullcite 整体引用：\fullcite{李海峥2010中国人力资本测度与指数构建}
 	\end{itemize}
 \end{frame}
 
