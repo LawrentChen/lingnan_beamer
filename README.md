@@ -46,6 +46,7 @@ For now, this syle has been tested under mactex, texlive and xelatex enviornment
 - [Beamer User Guide](https://mirror.bjtu.edu.cn/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
 - [Beamer Repository](https://github.com/josephwright/beamer)
 - [Overleaf Documentation](https://www.overleaf.com/learn)
+- [Biblatex gb7714-2015](https://ctan.math.illinois.edu/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf)
 
 **Unofficial**:
 
