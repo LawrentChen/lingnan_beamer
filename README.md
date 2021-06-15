@@ -65,9 +65,10 @@ This style uses biblatex for bibliography, which uses biber as its default backe
 
 Special thanks to the comments and advice from my classmates:
 
-- hanliang, Liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang);
+- hanliang, Liu[@HarryLiangDangDang](https://github.com/HarryLiangDangDang)
 - bokai, Zhu
-- yuming, OuYang.
+- yuming, OuYang
+- zhangquan, Luo
 
 
 
