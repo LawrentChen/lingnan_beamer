@@ -35,6 +35,8 @@ And you are done! Just begin your compilation.
 
 For now, this syle has been tested under mactex, texlive and xelatex enviornment.
 
+This style uses biblatex for bibliography, which uses biber as its default backend, so the compile chain should be **xelatex->biber->xelatex->xelatex**.
+
 **Attention**: If you want to try compiling `demo.tex`, you may need to change the Chinese font setting (CJK) in the demo, according to your system and fontset.
 
 

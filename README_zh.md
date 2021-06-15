@@ -35,6 +35,8 @@
 
 目前在 mactex、texlive 与 xelatex 环境下编译测试通过。
 
+模板内使用 biblatex 管理文献，其后端默认使用 biber，所以整体编译链推荐是 **xelatex->biber->xelatex->xelatex**
+
 **注意**：如果希望尝试编译 `demo.tex`，可能需要根据自身系统字体库修改 demo 文档内的中文字体设定（CJK）。
 
 
